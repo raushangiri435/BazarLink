@@ -90,5 +90,40 @@
    color: #0f1111;
  }
  .go:hover{
-    background-color:hsl(318 38% 30%);
+    background-color:hsl(318 38% 40%);
+    cursor: pointer;
  }
+ .signin{
+  
+  margin:2px;
+    width: 55px;
+   height:40px;
+   background-color: hsl(300 0% 95%);
+   font-size: 1.3em;
+   display: flex;
+   justify-content: center;
+   align-items: center;  
+   border-top-right-radius: 3px;
+   border-bottom-right-radius: 3px;
+   border: none;
+   color: #0f1111;
+}
+
+.boder{
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.boder:hover{
+    border: 1px solid transparent;
+    background-color: hsl(300 0% 75%);
+}
+.nav-cart i{
+  font-size: 30px;
+}
+.nav-cart{
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f1111;
+  margin-right: 8px;
+
+}
