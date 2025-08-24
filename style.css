@@ -12,7 +12,7 @@
     overflow: hidden;
     z-index: 998;
     align-items: center;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
 
 }
 
@@ -126,4 +126,28 @@
   color: #0f1111;
   margin-right: 8px;
 
+}
+/* navbar-2 */
+.panel-ops{
+
+  display: flex;
+  justify-content: space-evenly;
+  height: 40px;
+  background-color: hsl(300 0% 88%);
+  display: flex;
+  align-items: center;
+}
+a{
+  text-decoration: none;
+  color: #0A0A0A;
+}
+/* Hero section */
+.hero-section{
+  height: 450px;
+  background-image: url(asset/hero_image3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items:flex-end;
 }
