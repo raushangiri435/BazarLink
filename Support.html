@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="asset/Bazarlink-logo.png">
+    <title>Connecting Relations</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo boder"></div>
+            <div class="navlocation boder">
+                <div class="location boder">
+                    <P class="add-first">Deliver to</P>
+                    <div class="add-icon">
+                    <i class="fa-solid fa-location-dot" ></i>
+                    <p class="add-second">Bihar</p>
+                    </div>
+                </div>        
+            </div>
+            <div class="nav-search">
+                    <select class="select">
+                        <option>All</option>
+                    </select>
+                    <input type="text" class="search-box" placeholder="Search BaazarLink">
+                    <div class="go">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+            </div>            
+            <div class="signin boder">
+                <i class="fa-solid fa-user" id="user-icon-tab" style="cursor:pointer;"></i>
+            </div>
+             <!-- Login Popup Modal -->
+            <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+                <div style="background:#fff; padding:0; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.2); position:relative; width:400px; max-width:90vw; height:600px;">
+                    <span id="closeLoginModal" style="position:absolute; top:10px; right:16px; font-size:24px; cursor:pointer;">&times;</span>
+                    <iframe src="login.html" style="width:100%; height:100%; border:none; border-radius:8px;"></iframe>
+                </div>
+            </div>
+            <script>
+                const userIcon = document.getElementById('user-icon-tab');
+                const loginModal = document.getElementById('loginModal');
+                const closeLoginModal = document.getElementById('closeLoginModal');
+                userIcon.onclick = () => { loginModal.style.display = 'flex'; };
+                closeLoginModal.onclick = () => { loginModal.style.display = 'none'; };
+                window.onclick = function(event) {
+                    if (event.target === loginModal) loginModal.style.display = 'none';
+                };
+            </script>
+            <div class="nav-cart boder">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+            </div>
+            
+             <div class="panel-ops">
+                <a href="INDEX.HTML">Home</a>
+                <a href="product.html">Product</a>
+                <a href="Vendor.html">Vendor Dashboard</a>
+                <a href="order.html">Orders</a>
+                <a href="#">Support</a>
+                <a href="#">Customer Service</a>    
+            </div>
+    </header>
+ <main class="main-content">
+        <div class="container">
+            <div class="support-hero">
+                <h1>How Can We Help?</h1>
+                <p>Find quick answers in our FAQ or contact our support team directly.</p>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I register as a vendor?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To register as a vendor, simply click on the "Vendor Registration" button on the homepage and fill out the required information about your shop. Our team will review your application and get back to you within 24-48 hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I find shops in my area?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>On the homepage, click "Find Local Shops." The website will use your browser's location services to show you all the vendors within a 3km radius.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the delivery time?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Baazarlink is committed to same-day delivery. Your order should arrive within a few hours of placement, depending on the vendor's location and business hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I manage my orders as a vendor?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>As a registered vendor, you can log in to your Vendor Dashboard. Here, you can view all new orders, manage your inventory, and update order statuses.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="contact-form-section">
+                <h2>Contact Our Team</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Message Box -->
+    <div id="message-box" class="message-box">
+        <h3 id="message-title"></h3>
+        <p id="message-text"></p>
+        <button id="close-message-btn">OK</button>
+    </div>
+    <footer class="footer">
+        <div class="appicons">
+                    <h3>Download App</h3>
+                    <img width="150" src="asset/footer1.webp" alt="footer1">
+                    <img width="150" src="asset/footer2.webp" alt="footer2">
+                    </div>
+                    
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Baazarlink</h4>
+                <p>Connecting local shoppers with local stores.</p>
+                
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <p>Explore a variety of local products, from fresh produce to handmade crafts.</p>
+                <a href="#" style="color: #6EE7B7; text-decoration: underline;">View All Products &rarr;</a>
+            </div>
+            
+        </div>
+        
+        <div class="socialicons">
+                       
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+        <div class="footer-bottom">
+           <h3> &copy; 2025 Baazarlink. All rights reserved.</h3>
+        </div>
+    </footer>
+    
+</body>
+</html>

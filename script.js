@@ -141,3 +141,54 @@ function addProduct(){
     imagePreview.style.display = 'none';
     closemodel();
 }
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const contactForm = document.getElementById('contact-form');
+        const messageBox = document.getElementById('message-box');
+        const messageTitle = document.getElementById('message-title');
+        const messageText = document.getElementById('message-text');
+        const closeMessageBtn = document.getElementById('close-message-btn');
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        closeMessageBtn.addEventListener('click', () => {
+            messageBox.style.display = 'none';
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            messageTitle.textContent = "Message Sent!";
+            messageText.textContent = "Thank you for your message. We will get back to you shortly.";
+            messageBox.style.display = 'block';
+            contactForm.reset();
+        });
+
+        // Ensure all FAQ answers are hidden initially
+        faqQuestions.forEach(question => {
+            const answer = question.parentElement.querySelector('.faq-answer');
+            if (answer) {
+                answer.style.display = "none";
+            }
+        });
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.parentElement.querySelector('.faq-answer');
+                const svg = question.querySelector('svg');
+                
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                    if (svg) svg.style.transform = "rotate(0deg)";
+                } else {
+                    answer.style.display = "block";
+                    if (svg) svg.style.transform = "rotate(180deg)";
+                }
+            });
+        });
+        const userIconTab = document.getElementById('user-icon-tab');
+        userIconTab.addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });

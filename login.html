@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baazarlink - Login / Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6EE7B7;
+            --secondary-color: #3B82F6;
+            --text-color: #333;
+            --background-color: #f7f9fc;
+            --card-background: #fff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .auth-card {
+            background-color: var(--card-background);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo svg {
+            height: 2.5rem;
+            width: 2.5rem;
+            color: #10B981;
+        }
+
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        
+        .role-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-tab {
+            padding: 0.75rem 2rem;
+            background-color: #e5e7eb;
+            color: #6b7280;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .role-tab.active {
+            background-color: #10B981;
+            color: white;
+        }
+
+        .form-toggle-tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-toggle-btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            background-color: transparent;
+            color: #6b7280;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .form-toggle-btn.active {
+            background-color: var(--card-background);
+            color: var(--text-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .auth-btn:hover {
+            background-color: #059669;
+        }
+
+        .forgot-password {
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        
+        .register-link {
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            color: #6b7280;
+        }
+
+        .register-link a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .form-container {
+            display: none;
+        }
+        
+        /* Message Box */
+        .message-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .message-box h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .message-box p {
+            margin-bottom: 1.5rem;
+        }
+
+        .message-box button {
+            background-color: #10B981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .message-box button:hover {
+            background-color: #059669;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-card">
+        
+        <h1>Welcome!</h1>
+        <p id="sub-heading">Please select your role to get started.</p>
+
+        <div class="role-tabs">
+            <button class="role-tab active" id="customer-tab">Customer</button>
+            <button class="role-tab" id="vendor-tab">Vendor</button>
+        </div>
+
+        <div class="form-toggle-tabs">
+            <button class="form-toggle-btn active" id="login-toggle">Log In</button>
+            <button class="form-toggle-btn" id="signup-toggle">Sign Up</button>
+        </div>
+
+        <!-- Customer Login Form -->
+        <div id="customer-login-form" class="form-container">
+            <form>
+                <div class="form-group">
+                    <label for="c-login-email">Email Address</label>
+                    <input type="email" id="c-login-email" name="c-login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="c-login-password">Password</label>
+                    <input type="password" id="c-login-password" name="c-login-password" required>
+                </div>
+                <button type="submit" class="auth-btn">Log In</button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </form>
+        </div>
+
+        <!-- Customer Sign Up Form -->
+        <div id="customer-signup-form" class="form-container">
+            <form>
+                <div class="form-group">
+                    <label for="c-signup-name">Full Name</label>
+                    <input type="text" id="c-signup-name" name="c-signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="c-signup-email">Email Address</label>
+                    <input type="email" id="c-signup-email" name="c-signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="c-signup-password">Password</label>
+                    <input type="password" id="c-signup-password" name="c-signup-password" required>
+                </div>
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Vendor Login Form -->
+        <div id="vendor-login-form" class="form-container" style="display: none;">
+            <form>
+                <div class="form-group">
+                    <label for="v-login-email">Vendor Email</label>
+                    <input type="email" id="v-login-email" name="v-login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="v-login-password">Password</label>
+                    <input type="password" id="v-login-password" name="v-login-password" required>
+                </div>
+                <button type="submit" class="auth-btn">Log In</button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </form>
+        </div>
+
+        <!-- Vendor Sign Up Form -->
+        <div id="vendor-signup-form" class="form-container" style="display: none;">
+            <form>
+                <div class="form-group">
+                    <label for="v-signup-shop-name">Shop Name</label>
+                    <input type="text" id="v-signup-shop-name" name="v-signup-shop-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="v-signup-name">Your Name</label>
+                    <input type="text" id="v-signup-name" name="v-signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="v-signup-email">Email Address</label>
+                    <input type="email" id="v-signup-email" name="v-signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="v-signup-password">Password</label>
+                    <input type="password" id="v-signup-password" name="v-signup-password" required>
+                </div>
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Message Box -->
+        <div id="message-box" class="message-box">
+            <h3 id="message-title"></h3>
+            <p id="message-text"></p>
+            <button id="close-message-btn">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const customerTab = document.getElementById('customer-tab');
+        const vendorTab = document.getElementById('vendor-tab');
+        const loginToggle = document.getElementById('login-toggle');
+        const signupToggle = document.getElementById('signup-toggle');
+        const subHeading = document.getElementById('sub-heading');
+        const authCard = document.querySelector('.auth-card');
+        const forms = document.querySelectorAll('.form-container');
+        const messageBox = document.getElementById('message-box');
+        const messageTitle = document.getElementById('message-title');
+        const messageText = document.getElementById('message-text');
+        const closeMessageBtn = document.getElementById('close-message-btn');
+        const allForms = document.querySelectorAll('form');
+        
+        function showMessageBox(title, message) {
+            messageTitle.textContent = title;
+            messageText.textContent = message;
+            messageBox.style.display = 'block';
+        }
+
+        closeMessageBtn.addEventListener('click', () => {
+            messageBox.style.display = 'none';
+        });
+
+        allForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showMessageBox("Success!", "Form submitted successfully. We'll be in touch!");
+                form.reset();
+            });
+        });
+
+        function switchForm(role, action) {
+            forms.forEach(form => form.style.display = 'none');
+            const formId = `${role}-${action}-form`;
+            document.getElementById(formId).style.display = 'block';
+        
+            if (action === 'login') {
+                subHeading.textContent = "Log in to continue your journey with us.";
+            } else {
+                if (role === 'customer') {
+                    subHeading.textContent = "Sign up to start shopping with local vendors.";
+                } else {
+                    subHeading.textContent = "Sign up to register your shop and reach new customers.";
+                }
+            }
+        }
+
+        customerTab.addEventListener('click', () => {
+            customerTab.classList.add('active');
+            vendorTab.classList.remove('active');
+            loginToggle.classList.add('active');
+            signupToggle.classList.remove('active');
+            switchForm('customer', 'login');
+        });
+
+        vendorTab.addEventListener('click', () => {
+            vendorTab.classList.add('active');
+            customerTab.classList.remove('active');
+            loginToggle.classList.add('active');
+            signupToggle.classList.remove('active');
+            switchForm('vendor', 'login');
+        });
+
+        loginToggle.addEventListener('click', () => {
+            loginToggle.classList.add('active');
+            signupToggle.classList.remove('active');
+            const activeRole = customerTab.classList.contains('active') ? 'customer' : 'vendor';
+            switchForm(activeRole, 'login');
+        });
+
+        signupToggle.addEventListener('click', () => {
+            signupToggle.classList.add('active');
+            loginToggle.classList.remove('active');
+            const activeRole = customerTab.classList.contains('active') ? 'customer' : 'vendor';
+            switchForm(activeRole, 'signup');
+        });
+        
+        // Initial state on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchForm('customer', 'login');
+        });
+    </script>
+</body>
+</html>

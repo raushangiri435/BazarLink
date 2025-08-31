@@ -6,7 +6,7 @@
     <link rel="icon" href="asset/Bazarlink-logo.png">
     <title>Connecting Relations</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="product.css">
+   
     <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
@@ -33,8 +33,25 @@
                     </div>
             </div>            
             <div class="signin boder">
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"id="user-icon-tab" style="cursor:pointer;"></i>
             </div>
+             <!-- Login Popup Modal -->
+            <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+                <div style="background:#fff; padding:0; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.2); position:relative; width:400px; max-width:90vw; height:600px;">
+                    <span id="closeLoginModal" style="position:absolute; top:10px; right:16px; font-size:24px; cursor:pointer;">&times;</span>
+                    <iframe src="login.html" style="width:100%; height:100%; border:none; border-radius:8px;"></iframe>
+                </div>
+            </div>
+            <script>
+                const userIcon = document.getElementById('user-icon-tab');
+                const loginModal = document.getElementById('loginModal');
+                const closeLoginModal = document.getElementById('closeLoginModal');
+                userIcon.onclick = () => { loginModal.style.display = 'flex'; };
+                closeLoginModal.onclick = () => { loginModal.style.display = 'none'; };
+                window.onclick = function(event) {
+                    if (event.target === loginModal) loginModal.style.display = 'none';
+                };
+            </script>
             <div class="nav-cart boder">
                 <i class="fa-solid fa-cart-shopping"></i>
                 Cart
@@ -45,8 +62,8 @@
                 <a href="INDEX.HTML">Home</a>
                 <a href="#">Product</a>
                 <a href="Vendor.html">Vendor Dashboard</a>
-                <a href="#">Orders</a>
-                <a href="#">Support</a>
+                <a href="order.html">Orders</a>
+                <a href="Support.html">Support</a>
                 <a href="#">Customer Service</a>    
             </div>
     </header>
