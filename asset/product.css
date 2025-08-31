@@ -1,0 +1,272 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ header{
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    gap:30px;
+ }
+
+ .headerleft{
+    display: flex;
+    align-items: center;
+ }
+
+ .logo{
+    padding:24px 30px ;
+    border-right:1px solid #ccc;
+ }
+
+ .headeraddress{
+    padding:20px 30px;
+    
+ }
+    .headeraddress h1{
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+.headeraddress p{
+        font-size: 14px;
+        
+}
+.searchbox{
+    flex-grow:1;
+    background-color: #f8f8f8;
+    display: flex;
+    border: 1px solid #f4f4f4;
+    border-radius: 15px;
+
+}
+.searchbox button{
+    padding: 15px;
+    border: none;
+    background-color: transparent;
+}
+.searchbox input{
+    flex-grow: 1;
+    border:none;
+    background-color: transparent;
+}
+.searchbox input:focus{
+    outline: none;
+}
+
+.headerbtn{
+    display: flex;
+    gap:40px;
+    margin-right: 40px;
+}
+.headerbtn button{
+    padding: 15px;
+    border:none;
+    background-color: transparent;
+    font-size: 16px;
+
+
+}
+.headerbtn button:last-child{
+    background-color:rgb(12, 131, 31);
+    color: white;
+    border-radius: 5px;
+
+}
+.hero-image{
+    margin: 20px auto;
+    max-width: 1280px;
+}
+.categorySection{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: auto;
+}
+.categorySection .categoryitems{
+    flex-basis: 10%;
+
+}
+
+.categorySection .categoryitems img{
+    width: 100%;
+    
+}
+.productSection{
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 10px auto;
+}
+.headingRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.headingRow h2{
+    font-size: 22px;
+}
+
+.headingRow a{
+    text-decoration: none;
+    color: #328839;
+    font-size: 16px;
+}
+.productRow{
+    width:100%;
+    margin:30px 0px;
+    display: flex;
+
+}
+.productRow .productItem{
+    flex-basis: 15%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow:0px 0px 10px 2px #ccc;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+.productRow .productImage{
+    text-align: center;
+    padding: 15px;
+}
+.productImage p{
+    background-color: #f8f8f8;
+    display:flex;
+    width:60px;
+    justify-content: center;
+    padding: 2px;
+    text-align: left;
+    font-size: 12px;
+}
+.productDetails{
+    padding: 10px;
+    padding-top:0px;
+} 
+.productDetails h3{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.productDetails p{
+    font-size: 14px;
+    color:#848080;
+}
+.btn-price-outer{
+    display:flex;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn-price-outer button{
+    padding:5px 15px;
+    border: 1px solid #328839;
+    border-radius: 10px;
+    background-color: #f7fff9;
+    color: #328839;
+    border-radius: 5px;
+}
+
+footer{
+    padding:40px 0px 0px 0px;
+}
+.footer-mid{
+    max-width: 1280px;
+
+    margin: auto;
+}
+.footer-mid-row1{
+    display: flex;
+    width:100%;
+    gap:40px;
+}
+.footer-mid-row1-left{
+    flex-basis: 30%;
+}
+.footer-mid-row1-left h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.useful-links{
+    display: flex;
+    
+}
+.useful-links ul{
+    list-style: none;
+    flex-basis: 35%;
+
+}
+.useful-links ul li{
+    margin: 5px 0px;
+   text-decoration: none;
+    color: #848080;
+}
+
+.useful-links ul li a{
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    color: rgb(102,102,102);
+    margin-bottom: 10px;
+}
+
+.footer-mid-row1-right{
+    flex-basis: 70%;
+    display: flex;
+   
+}
+.categoryheading{
+    display:flex;
+    margin-bottom: 10px;
+    gap:15px;
+
+}
+.categoryheading h3{
+    font-size: 18px;
+   
+}
+.footer-mid-row2{
+    background-color: #fcfcfc;
+    width:100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+}
+.footer-mid-row3 p{
+    padding:20px 0px;
+    font-size: 14px;
+    line-height: 20px;
+    color:rgb(102,102,102);
+}
+.footer-mid-row2 p{
+    flex-basis: 40%;
+    font-size: 14px;
+    text-align: center;
+}
+.appicons{
+    display: flex;
+    flex-basis: 30%;
+    align-items: center;
+    gap:10px;
+}
+.socialicons{
+    display: flex;
+    flex-basis: 30%;
+    justify-content: center;
+    gap:10px;
+}
+.socialicons i{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #221610;
+    color:white;
+}
+    

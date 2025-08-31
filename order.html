@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="asset/Bazarlink-logo.png">
+    <title>Connecting Relations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6EE7B7;
+            --secondary-color: #3B82F6;
+            --text-color: #333;
+            --background-color: #f7f9fc;
+            --card-background: #fff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header {
+            background-color: var(--card-background);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo svg {
+            height: 2rem;
+            width: 2rem;
+            color: #10B981;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #10B981;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1px solid #d1d5db;
+            color: #4b5563;
+        }
+
+        .btn-outline:hover {
+            background-color: #f3f4f6;
+        }
+
+        .btn-primary {
+            background-color: #10B981;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #059669;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: var(--card-background);
+            margin-top: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f3f4f6;
+        }
+
+        .mobile-menu .auth-buttons {
+            flex-direction: column;
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .main-content {
+            padding: 2.5rem 1rem;
+        }
+
+        .page-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .orders-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .order-card {
+            background-color: var(--card-background);
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .order-id {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .order-status {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+        .status-delivered {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        .status-shipped {
+            background-color: #bfdbfe;
+            color: #1e40af;
+        }
+
+        .order-details h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .order-details p {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .order-total {
+            text-align: right;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .view-invoice-btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-invoice-btn:hover {
+            background-color: #2563eb;
+        }
+
+        /* Invoice Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 100;
+        }
+
+        .modal-content {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            max-width: 48rem;
+            width: 100%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .modal-close-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .invoice-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .invoice-details p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .invoice-addresses {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .invoice-addresses h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .invoice-table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .invoice-table th, .invoice-table td {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .invoice-table th {
+            font-weight: 600;
+            color: #4b5563;
+            border-bottom: 2px solid #9ca3af;
+        }
+
+        .invoice-summary {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .invoice-summary-card {
+            width: 100%;
+            max-width: 24rem;
+        }
+
+        .invoice-summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            padding: 0.25rem 0;
+        }
+
+        .invoice-summary-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-top: 2px solid #9ca3af;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            background-color: #10B981;
+            color: white;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 2rem;
+        }
+        .download-btn:hover {
+            background-color: #059669;
+        }
+        
+      
+
+        /* Media Queries for Responsiveness */
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+            .nav-menu, .auth-buttons {
+                display: flex !important;
+            }
+            .orders-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .invoice-addresses {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-menu, .auth-buttons {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+ <header>
+        <div class="navbar">
+            <div class="logo boder"></div>
+            <div class="navlocation boder">
+                <div class="location boder">
+                    <P class="add-first">Deliver to</P>
+                    <div class="add-icon">
+                    <i class="fa-solid fa-location-dot" ></i>
+                    <p class="add-second">Bihar</p>
+                    </div>
+                </div>        
+            </div>
+            <div class="nav-search">
+                    <select class="select">
+                        <option>All</option>
+                    </select>
+                    <input type="text" class="search-box" placeholder="Search BaazarLink">
+                    <div class="go">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+            </div>            
+            <div class="signin boder">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="nav-cart boder">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="mobile-menu-btn" aria-label="Open menu">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="panel-ops nav-menu">
+            <a href="INDEX.HTML">Home</a>
+            <a href="product.html">Product</a>
+            <a href="Vendor.html">Vendor Dashboard</a>
+            <a href="#">Orders</a>
+            <a href="#">Support</a>
+            <a href="#">Customer Service</a>    
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="INDEX.HTML">Home</a>
+            <a href="product.html">Product</a>
+            <button id="cancel-invoice-btn" class="btn btn-outline" style="width:100%;margin-top:1rem;">Cancel Invoice Download</button>
+<script>
+    // Add this after your existing JS
+    const cancelInvoiceBtn = document.getElementById('cancel-invoice-btn');
+    if (cancelInvoiceBtn) {
+        cancelInvoiceBtn.addEventListener('click', () => {
+            document.getElementById('invoice-modal').style.display = 'none';
+        });
+    }
+</script>
+            <a href="Vendor.html">Vendor Dashboard</a>
+            <a href="#">Orders</a>
+            <a href="#">Support</a>
+            <a href="#">Customer Service</a>
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Your Orders</h1>
+        <div id="orders-list" class="orders-list">
+            <!-- Order cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Invoice Modal/Section -->
+        <div id="invoice-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Invoice Details</h2>
+                    <button id="close-invoice-btn" class="modal-close-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Invoice Content -->
+                <div id="invoice-content">
+                    <!-- Invoice data will be populated by JavaScript -->
+                </div>
+                <button id="download-invoice-btn" class="download-btn">Download Invoice</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="appicons">
+                    <h3>Download App</h3>
+                    <img width="150" src="asset/footer1.webp" alt="footer1">
+                    <img width="150" src="asset/footer2.webp" alt="footer2">
+                    </div>
+                    
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Baazarlink</h4>
+                <p>Connecting local shoppers with local stores.</p>
+                
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <p>Explore a variety of local products, from fresh produce to handmade crafts.</p>
+                <a href="#" style="color: #6EE7B7; text-decoration: underline;">View All Products &rarr;</a>
+            </div>
+            
+        </div>
+        <div class="socialicons">
+                       
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+        <div class="footer-bottom">
+           <h3> &copy; 2025 Baazarlink. All rights reserved.</h3>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        const ordersList = document.getElementById('orders-list');
+        const invoiceModal = document.getElementById('invoice-modal');
+        const invoiceContent = document.getElementById('invoice-content');
+        const closeInvoiceBtn = document.getElementById('close-invoice-btn');
+        const downloadInvoiceBtn = document.getElementById('download-invoice-btn');
+
+        const orders = [
+            {
+                id: 'BL-987654',
+                date: '2024-08-28',
+                vendor: 'Green Grocer & Co.',
+                status: 'Delivered',
+                total: 1250,
+                items: [
+                    { name: 'Organic Apples', quantity: 2, price: 150 },
+                    { name: 'Fresh Spinach', quantity: 3, price: 80 },
+                    { name: 'Local Honey', quantity: 1, price: 250 },
+                    { name: 'Artisan Bread', quantity: 2, price: 210 }
+                ],
+                customerInfo: { name: 'Prakash Sharma', address: '123, Green Street, City' },
+                invoiceNo: 'INV-BL-554433'
+            },
+            {
+                id: 'BL-123456',
+                date: '2024-08-25',
+                vendor: 'The Little Bookstore',
+                status: 'Shipped',
+                total: 800,
+                items: [
+                    { name: 'Fantasy Novel', quantity: 1, price: 450 },
+                    { name: 'History Book', quantity: 1, price: 350 }
+                ],
+                customerInfo: { name: 'Prakash Sharma', address: '123, Green Street, City' },
+                invoiceNo: 'INV-BL-998877'
+            }
+        ];
+
+        function renderOrders() {
+            orders.forEach(order => {
+                const card = document.createElement('div');
+                card.className = 'order-card';
+                card.innerHTML = `
+                    <div class="order-header">
+                        <span class="order-id">Order ID: ${order.id}</span>
+                        <span class="order-status status-${order.status.toLowerCase()}">${order.status}</span>
+                    </div>
+                    <div class="order-details">
+                        <h3>${order.vendor}</h3>
+                        <p>Ordered on: ${order.date}</p>
+                    </div>
+                    <div class="order-total">₹${order.total}</div>
+                    <button data-order-id="${order.id}" class="view-invoice-btn">View Details</button>
+                `;
+                ordersList.appendChild(card);
+            });
+        }
+
+        function renderInvoice(order) {
+            let itemsHtml = order.items.map(item => `
+                <tr>
+                    <td>${item.name}</td>
+                    <td style="text-align: center;">${item.quantity}</td>
+                    <td style="text-align: right;">₹${item.price}</td>
+                    <td style="text-align: right; font-weight: 600;">₹${item.quantity * item.price}</td>
+                </tr>
+            `).join('');
+
+            invoiceContent.innerHTML = `
+                <div class="invoice-info">
+                    <div>
+                        <p><strong>Invoice No:</strong> ${order.invoiceNo}</p>
+                        <p><strong>Date:</strong> ${order.date}</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.25rem; font-weight: 700;">Baazarlink</p>
+                    </div>
+                </div>
+
+                <div class="invoice-addresses">
+                    <div>
+                        <h4>Bill To:</h4>
+                        <p>${order.customerInfo.name}</p>
+                        <p>${order.customerInfo.address}</p>
+                    </div>
+                    <div>
+                        <h4>Vendor:</h4>
+                        <p>${order.vendor}</p>
+                    </div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th style="text-align: center;">Qty</th>
+                                <th style="text-align: right;">Price</th>
+                                <th style="text-align: right;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${itemsHtml}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="invoice-summary">
+                    <div class="invoice-summary-card">
+                        <div class="invoice-summary-row">
+                            <span>Subtotal:</span>
+                            <span>₹${order.total}</span>
+                        </div>
+                        <div class="invoice-summary-row">
+                            <span>Tax (0%):</span>
+                            <span>₹0</span>
+                        </div>
+                        <div class="invoice-summary-row invoice-summary-total">
+                            <span>Grand Total:</span>
+                            <span>₹${order.total}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        ordersList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('view-invoice-btn')) {
+                const orderId = e.target.dataset.orderId;
+                const order = orders.find(o => o.id === orderId);
+                if (order) {
+                    renderInvoice(order);
+                    invoiceModal.style.display = 'flex';
+                }
+            }
+        });
+
+        closeInvoiceBtn.addEventListener('click', () => {
+            invoiceModal.style.display = 'none';
+        });
+
+        downloadInvoiceBtn.addEventListener('click', () => {
+            window.print();
+        });
+
+        renderOrders();
+    </script>
+
+</body>
+</html>

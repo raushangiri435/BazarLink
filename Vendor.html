@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="asset/Bazarlink-logo.png">
+    <title>Connecting Relations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+   <!-- <header>
+        <div class="navbar">
+            <div class="logo boder"></div>
+            <div class="navlocation boder">
+                <div class="location boder">
+                    <P class="add-first">Deliver to</P>
+                    <div class="add-icon">
+                    <i class="fa-solid fa-location-dot" ></i>
+                    <p class="add-second">Bihar</p>
+                    </div>
+                </div>        
+            </div>
+            <div class="nav-search">
+                    <select class="select">
+                        <option>All</option>
+                    </select>
+                    <input type="text" class="search-box" placeholder="Search BaazarLink">
+                    <div class="go">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+            </div>            
+            <div class="signin boder">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="nav-cart boder">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+            </div>
+            </header> -->
+                <div class="side-panel">
+                    
+                        <img width="150" src="asset/logo-transparent.png" alt="BazarLink-logo">
+                
+                    <ul>
+                       <li><a href="INDEX.HTML">Home</a></li>
+                        <li><a href="product.html">Product</a></li>
+                       <li><a href="#">Vendor Dashboard</a></li>
+                       <li> <a href="order.html">Orders</a></li>
+                        <li><a href="#">Support</a></li>
+                       <li><a href="#">Customer Service</a></li>
+                    </ul>
+                    </div>
+            <div class ="main">
+                <div class="topbar">
+                <h1>Vendor Dashboard</h1>
+                <div class="topbar-btn">
+                    <div class="profile">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                 <button onclick="openmodel()" id="add-product">Add Product</button>
+                 <button class="view-orders" >View Orders</button>
+                 </div>
+                  
+                    </div>
+                     <div class="hero-section"></div>
+                 
+             </div>
+            
+            <!--Starts cards-->
+            <div class="card-container">
+                <div class="card">
+                    <h3>Today's Sales</h3><p>₹ 5000</p>
+                    </div>
+                <div class="card">
+                    <h3>This week</h3><p>₹ 35000</p>
+                    </div>
+                <div class="card"><h3>This Month</h3><p>₹ 150000</p>
+                    </div>
+                <div class="card"><h3>Pending withdrawls</h3><p>₹ 20000</p></div>
+            </div>
+            <!--Ends cards-->
+            <!--Table starts-->
+            <div class="table-container">
+                <div class="heading">
+                <h2>My Products</h2></div>
+                 <table id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>101</td>
+                                    <td>Fresh Tomatoes</td>
+                                    <td>Vegetables</td>
+                                    <td>₹ 50 /kg</td>
+                                    <td>100</td>
+                                    <td><button class="edit-btn">Edit</button> <button class="delete-btn">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <td>102</td>
+                                    <td>Organic Rice</td>
+                                    <td>Grains</td>
+                                    <td>₹ 70/kg</td>
+                                    <td>200</td>
+                                    <td><button class="edit-btn">Edit</button> <button class="delete-btn">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <td>103</td>
+                                    <td>wheat</td>
+                                    <td>Grains</td>
+                                    <td>₹ 20/kg</td>
+                                    <td>100</td>
+                                    <td><button class="edit-btn">Edit</button> <button class="delete-btn">Delete</button></td>
+                                </tr>
+                                </tbody>
+                                </table>
+                                </div>
+            <!--Table ends-->
+            <!-- Order Table starts-->
+             <div class="table-container">
+                <div class="heading">
+                <h2>Recent Orders</h2></div>
+                    <table >
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer Name</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>5001</td>
+                                        <td>Rahul Sharma</td>
+                                        <td>Fresh Tomatoes</td>
+                                        <td>2 kg</td>
+                                        <td>₹ 100</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5002</td>
+                                        <td>Anita Verma</td>
+                                        <td>Organic Rice</td>
+                                        <td>1 kg</td>
+                                        <td>₹ 70</td>
+                                        <td><span class="status shipped">Shipped</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5003</td>
+                                        <td>Suresh Kumar</td>
+                                        <td>wheat</td>
+                                        <td>5 kg</td>
+                                        <td>₹ 100</td>
+                                        <td><span class="status delivered">Delivered</span></td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    </div>
+            <!--Order table ends-->
+            <!-- Charts start-->
+             <div class="charts-container">
+                <div class="chart">
+                    <h3>Sales Over Time</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Top Selling Products</h3>
+                    <canvas id="topProductsChart"></canvas>
+                    </div>
+                    </div>
+            <!-- Charts end-->
+             <!-- Add Product Modal -->
+                <div id="addProductModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closemodel()">&times;</span>
+                        <h2>Add New Product</h2>
+                        
+                            <label for="productName">Product Name:</label>
+                            <input type="text" id="productName" name="productName" required>
+                            
+                            <label for="category">Category:</label>
+                            <input type="text" id="category" name="category" required>
+                            
+                            <label for="price">Price:</label>
+                            <input type="number" id="price" name="price" required>
+                           <!-- <label>Upload Image</label>
+                            <input type="file" id="image" name="image" accept="image/*" required>
+                            <img id="preview" src="#" alt="Image Preview" style="display:none; max-width: 100px; margin-top: 10px;"/>
+                    -->
+                            <label for="stock">Stock Quantity:</label>
+                            <input type="number" id="stock" name="stock" required>
+                            
+                            <button class="btn-add" onclick="addProduct()">Add</button>
+                            <button class="btn-cancel" onclick="closemodel()">Cancel</button>
+                    
+                    </div>
+                </div>
+                <!-- End of Add Product Modal -->
+                 <footer>
+                     <div class="appicons">
+                    <h3>Download App</h3>
+                    <img width="150" src="asset/footer1.webp" alt="footer1">
+                    <img width="150" src="asset/footer2.webp" alt="footer2">
+                    </div>
+                    <div class="socialicons-footer">
+                       
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    <h3>&copy; 2025 BaazarLink. All rights reserved.</h3>
+                    </footer>
+                    </body>
+                    </html>
